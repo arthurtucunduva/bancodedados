@@ -1,0 +1,53 @@
+## desenvolver um software para coleta de dados e apresentação dos resultados, com 3 perguntas obrigatórias e outras facultativas
+cont = 0
+somaidade = 0                                                     
+idademáx = 0
+idademín = 1000
+somapeso = 0
+pesomáx = 0
+pesomín = 10000
+somaexerc = 0
+somannexerc = 0
+
+while True:
+  idade = int(input('qual a sua idade? '))                                              # ler a idade
+  somaidade += idade
+  if idade > idademáx:
+    idademáx = idade
+  if idade < idademín:
+    idademín = idade
+
+
+  peso = int(input('qual o seu peso? '))                                                 # ler o peso  
+  somapeso += peso     
+  if peso > pesomáx:
+    pesomáx = peso
+  if peso < pesomín:
+    pesomín = peso
+
+
+  ex = str(input('faz exercício regularmente? [S] ou [N]')).upper()                      # ler se faz exercícios regularmente
+  if ex == "S":
+    somaexerc += 1
+  if ex == "N":
+    somannexerc += 1
+  continuar = str(input('quer continuar? [S] ou [N]')).upper()
+  if continuar == 'N':
+    break
+  cont += 1
+  
+médiapeso = somapeso / (cont+1)
+médiaidade = somaidade/ (cont+1)
+faz = somaexerc *100 / (cont+1)  
+nnfaz = somannexerc*100 / (cont+1)
+
+print(f'Número de Entrevistas: {cont}')
+print(f'Idade média:           {médiaidade}')
+print(f'Idade máxima:          {idademáx}')
+print(f'Idade mínima:          {idademín}')
+print(f'Peso médio:            {médiapeso}')
+print(f'Peso máximo:           {pesomáx}')
+print(f'Peso mínimo:           {pesomín}')
+print(f'porcentagem de pessoas que fazem exercício regularmente:     {faz}')
+print(f'porcentagem de pessoas que não fazem exercício regularmente: {nnfaz}')
+
